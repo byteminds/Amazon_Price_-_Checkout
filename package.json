@@ -7,9 +7,13 @@
   "engines": {
     "node": ">=6.13.0"
   },
+<<<<<<< HEAD
   "scripts": {
     "start": "node server/index.js"
   },
+=======
+  "scripts": {},
+>>>>>>> 0e56cdfa4a1472357a9bf702632355ed22961da1
   "dependencies": {
     "body-parser": "^1.19.0",
     "express": "^4.17.1",
