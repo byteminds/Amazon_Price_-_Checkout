@@ -7,7 +7,6 @@
   "engines": {
     "node": ">=6.13.0"
   },
-<<<<<<< HEAD
   "scripts": {
     "start": "node server/index.js"
   },
