@@ -1,5 +1,5 @@
 {
-  "name": "Amazon Pricing & Checkout Component",
+  "name": "Amazon-Pricing-and-Checkout-Component",
   "version": "1.0.0",
   "description": "Amazon product page component that renders pricing and checkout information",
   "author": "Keenan Thomson",
@@ -8,7 +8,7 @@
     "node": ">=6.13.0"
   },
   "scripts": {
-    "start": "node server/index.js"
+    "start": "nodemon server/index.js"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
