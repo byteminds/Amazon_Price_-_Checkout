@@ -1,26 +1,18 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb:localhost/fetcher');
-
-let repoSchema = {
-  id: Number,
-  Price: Number,
-  isPrime: String,
-  stockQty: Number,
-  shipCost: Number,
-  soldBy: String,
-  subscriptionProtectionPlanCost: Number,
-  TwoYrProtectionPlanCost: Number
-}
+mongoose.connect('mongodb://127.0.0.1/fetcher');
 
 let db = {};
 
 let Repo = mongoose.model('Repo', repoSchema);
 
-db.save = (array, err, callback) => {
-  if (err) {
-    console.log(`db.save error!`);
-  }
-  Repo.
+db.save = (array, callback) => {
+  Repo.insertMany(array, (err) => {
+    if (err) {
+      console.log(`Error: insertMany function`)
+    } else {
+      callback();
+    }
+  })
 };
 
 db.getDocument = (id, err, callback) => {
