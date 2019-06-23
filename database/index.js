@@ -1,5 +1,16 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1/fetcher');
+mongoose.connect('mongodb://127.0.0.1/pricingComponentDB');
+
+let repoSchema = {
+  id: Number,
+  Price: Number,
+  isPrime: String,
+  stockQty: Number,
+  shipCost: Number,
+  soldBy: String,
+  subscriptionProtectionPlanCost: Number,
+  TwoYrProtectionPlanCost: Number
+}
 
 let db = {};
 
@@ -15,8 +26,14 @@ db.save = (array, callback) => {
   })
 };
 
-db.getDocument = (id, err, callback) => {
-  console.log(`This function is not defined yet!`)
+db.getDocument = (id, callback) => {
+  Repo.find({id: id}, (err, items) => {
+    if (err) {
+      console.log(`Error with db.getDocument function `, err);
+    } else {
+      return callback(items);
+    }
+  });
 };
 
 module.exports.db = db;
