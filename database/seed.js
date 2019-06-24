@@ -4,19 +4,6 @@ const Chance = require('chance');
 
 let chance = new Chance();
 
-console.log(`RETURN DB --> `, db);
-
-// let repoSchema = {
-//   id: Number,
-//   Price: Number,
-//   isPrime: String,
-//   stockQty: Number,
-//   shipCost: Number,
-//   soldBy: String,
-//   subscriptionProtectionPlanCost: Number,
-//   TwoYrProtectionPlanCost: Number
-// }
-
 let fakeEntryCount = 100;
 let entriesArray = [];
 
