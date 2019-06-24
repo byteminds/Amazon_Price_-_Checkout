@@ -17,13 +17,15 @@ let db = {};
 let Repo = mongoose.model('Repo', repoSchema);
 
 db.save = (array, callback) => {
-  Repo.insertMany(array, (err) => {
-    if (err) {
-      console.log(`Error: insertMany function`)
-    } else {
-      callback();
-    }
-  })
+  Repo.deleteMany({}, () => {
+    Repo.insertMany(array, (err) => {
+      if (err) {
+        console.log(`Error: insertMany function`)
+      } else {
+        callback();
+      }
+    })
+  });
 };
 
 db.getDocument = (id, callback) => {
