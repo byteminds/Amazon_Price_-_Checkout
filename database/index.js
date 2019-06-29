@@ -38,4 +38,17 @@ db.getDocument = (id, callback) => {
   });
 };
 
+let docsArray = [];
+
+  Repo.find({}).stream()
+      .on('data', docs => {
+         docsArray.push(docs);
+      })
+      // .on('error', err => {
+      //   console.log(`ERROR: `, err)
+      // })
+      .on('end',  () => {
+        // console.log(docsArray.length);
+      })
+
 module.exports.db = db;

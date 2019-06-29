@@ -14,7 +14,8 @@
     "test": "jest"
   },
   "jest": {
-    "preset": "@shelf/jest-mongodb"
+    "preset": "@shelf/jest-mongodb",
+    "testEnvironment": "node"
   },
   "dependencies": {
     "body-parser": "^1.19.0",
