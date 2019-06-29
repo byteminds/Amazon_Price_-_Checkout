@@ -28,9 +28,9 @@ describe('database', () => {
     expect(insertedUser).toEqual(mockData);
   });
 
-  it('should contain at least 100 records', async () => {
+  it('should contain at >=100 records', async () => {
     // let repos = await db.collection('pricingComponentDB');
-    let records = await repos.find({}).lean().exec((err, docs) => {
+    let records = await repos.find({}).exec((err, docs) => {
       docs = docs.map(o => o.toObject())
     });
     expect(records.length).toBeGreaterThanOrEqual(100);
