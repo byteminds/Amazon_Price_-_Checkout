@@ -1,21 +1,21 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
-// import '../dist/app.css';
+import '../dist/app.css';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      Price: '',
-      isPrime: '',
-      stockQty: '',
-      shipCost: '',
-      soldBy: '',
-      subscriptionProtectionPlanCost: '',
-      TwoYrProtectionPlanCost: ''
-    }
-  }
+      Price: null,
+      isPrime: null,
+      stockQty: null,
+      shipCost: null,
+      soldBy: null,
+      subscriptionProtectionPlanCost: null,
+      TwoYrProtectionPlanCost: null
+    };
+  };
 
   componentDidMount() {
     $.ajax({

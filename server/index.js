@@ -12,6 +12,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/api/:id', (req, res) => {
   db.getDocument(req.params.id, (items) => {
     res.send(items);
+    console.log("*Responded to Client Request*")
     });
 });
 
