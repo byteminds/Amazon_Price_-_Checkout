@@ -38,7 +38,13 @@ class App extends React.Component {
   render() {
     return(
     <div className="a-box-group">
-    <h3>{this.state.Price}</h3>
+      <div className="a-box a-last">
+        <div className="a-box-inner">
+          <div className="a-section a-spacing-none a-padding-none">
+            <span>{this.state.Price}</span>
+          </div>
+        </div>
+      </div>
     </div>
     )
   }
