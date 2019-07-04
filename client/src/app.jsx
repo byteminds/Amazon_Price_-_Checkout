@@ -15,7 +15,20 @@ class App extends React.Component {
       subscriptionProtectionPlanCost: null,
       TwoYrProtectionPlanCost: null
     };
+    this.formShippingMessage = this.formShippingMessage.bind(this);
   };
+
+  formShippingMessage() {
+    if (this.state.isPrime === 'false') {
+      return(<span className="a-size-base a-color-base">& <b>Free Shipping</b></span>)
+    } else {
+      return(<span id="priceBadging_feature_div" className="feature">
+        <i className="a-icon a-icon-prime">
+          <span className="a-icon-alt"></span>
+        </i>
+      </span>)
+    }
+  }
 
   componentDidMount() {
     $.ajax({
@@ -61,9 +74,7 @@ class App extends React.Component {
                   <div className="a-section">
                     <div id="" className="a-row">
                       <div className="a-column a-span12 a-text-left a-spacing-top-micro">
-                        <span className="a-size-base a-color-base">
-                        {this.state.isPrime === 'true' ? 'Prime' : '& Free Shipping'}
-                        </span>
+                        {this.formShippingMessage()}
                       </div>
                     </div>
                   </div>
