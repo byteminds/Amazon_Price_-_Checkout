@@ -22,6 +22,7 @@ class App extends React.Component {
       url: `/api/${Math.floor(Math.random() * 100)}`,
       type: 'GET',
       success: (data) => {
+        console.log(data[0])
         this.setState({
         Price: data[0].Price,
         isPrime: data[0].isPrime,
@@ -37,11 +38,58 @@ class App extends React.Component {
 
   render() {
     return(
+/* start section the forms overall box structure */
     <div className="a-box-group">
       <div className="a-box a-last">
         <div className="a-box-inner">
           <div className="a-section a-spacing-none a-padding-none">
-            <span>{this.state.Price}</span>
+            {/* start section that forms price block  */}
+            <div idname="priceInsideBuyBox_feature_div">
+              <div className="a-section">
+                <span id="price_inside_buybox" className="a-size-medium a-color-price">${this.state.Price}</span>
+              </div>
+            </div>
+            {/* form large box below price block (everything above Add To List) */}
+            <div id="desktop_qualifiedBuyBox" className="feature">
+              <div className="a-section a-spacing-none a-padding-none">
+                <div id="invitePlatform_feature_div" className="feature">
+                </div>
+                <div id="pointsInsideBuyBox_feature_div" className="feature">
+                </div>
+                {/* form Prime or Free Shipping portion */}
+                <div id="shippingMessageInsideBuyBox_feature_div" className="feature">
+                  <div className="a-section">
+                    <div id="" className="a-row">
+                      <div className="a-column a-span12 a-text-left a-spacing-top-micro">
+                        <span className="a-size-base a-color-base">
+                        {this.state.isPrime === 'true' ? 'Prime' : '& Free Shipping'}
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div id="" className="">
+                </div>
+                <div id="" className="">
+                </div>
+                <div id="" className="">
+                </div>
+                <div id="" className="">
+                </div>
+                <div id="" className="">
+                </div>
+                <div id="" className="">
+                </div>
+                <div id="" className="">
+                </div>
+              </div>
+            </div>
+            <div id="digitalDashHighProminence_feature_div" className="feature">
+            </div>
+            <div id="addToWishlist_feature_div" className="feature">
+            </div>
+            <div id="digitalDashLowProminence_feature_div" className="feature">
+            </div>
           </div>
         </div>
       </div>
