@@ -1,6 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
+import moment from 'moment';
 import '../dist/app.css';
 
 class App extends React.Component {
@@ -17,7 +18,7 @@ class App extends React.Component {
     };
   };
 
-  formShippingMessage() {
+  createShippingMessage() {
     if (this.state.isPrime === 'false') {
       return(<span className="a-size-base a-color-base">& <b>Free Shipping</b></span>)
     } else {
@@ -30,24 +31,45 @@ class App extends React.Component {
     }
   }
 
-  formArrivesMessage() {
-    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday"];
+  createArrivesMessage() {
+    let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
     if (this.state.isPrime === "true") {
       let d = new Date();
       let deliveryDate = days[d.getDay()+2];
       return(
         <div id="arrives-by-message" className="a-section a-spacing-none a-spacing-top-mini">
           FREE Delivery: <b className="a-text-bold">{deliveryDate} </b>
-          <a href="/gp/help/customer/display.html/ref=ftinfo_dp_?ie=UTF8&nodeId=3510241&pop-up=1" target="AmazonHelp">Details</a>
+          <br/>
+          <span className="a-color-secondary">Order within </span>
+          <span id="ship-time-CTA" className="a-color-secondary">{this.getRemainingTimetoOrder()} </span>
+          <a href="https://www.amazon.com/gp/help/customer/display.html/ref=ftinfo_dp_?ie=UTF8&nodeId=3510241&pop-up=1" target="AmazonHelp">Details</a>
         </div>
       )
     } else {
-        return(
+      let earliest = moment().add(5, 'days').format("MMM DD");
+      let latest = moment().add(10, 'days').format("MMM DD");
+      let upsell = moment().add(2, 'days').format("MMM DD");
+      return(
+        <div className="a-section a-spacing-none">
           <div id="arrives-by-message" className="a-section a-spacing-none a-spacing-top-mini">
-            Arrives: <span></span>
+            Arrives: <span className="a-text-bold">{earliest} - {latest}</span>
           </div>
+          <div id="upsell-shipping-message" className="a-section a-spacing-mini a-spacing-top-micro">
+            Fastest delivery: <span className="a-text-bold">{upsell}</span>
+          </div>
+        </div>
         )
     }
+  }
+
+  getRemainingTimetoOrder() {
+    let actualTime = new Date(Date.now());
+    let endOfDay = new Date(actualTime.getFullYear(), actualTime.getMonth(), actualTime.getDate() + 1, 0, 0, 0);
+    let timeRemaining = endOfDay.getTime() - actualTime.getTime();
+    let timeToOrder = timeRemaining;
+    let hours = Math.floor(timeToOrder / 1000 / 60 / 60);
+    let minutes = Math.floor((timeToOrder / 1000 / 60 / 60 - hours) * 60);
+    return `${hours} hours and ${minutes} minutes`
   }
 
   componentDidMount() {
@@ -55,7 +77,7 @@ class App extends React.Component {
       url: `/api/${Math.floor(Math.random() * 100)}`,
       type: 'GET',
       success: (data) => {
-        console.log(data[0]);
+        // console.log(data[0]);
         this.setState({
         Price: data[0].Price,
         isPrime: data[0].isPrime,
@@ -96,23 +118,23 @@ class App extends React.Component {
                   <div className="a-section">
                     <div className="a-row">
                       <div className="a-column a-span12 a-text-left a-spacing-top-micro">
-                        {this.formShippingMessage()}
+                        {this.createShippingMessage()}
                       </div>
                     </div>
                   </div>
                 </div>
-                {/* form Prime or Free Shipping portion */}
+                {/* form shipping speed estimates section */}
                 <div id="dpFastTrackInsideBuyBox_feature_div" className="feature">
                   <div className="a-section a-spacing-mini a-spacing-top-micro">
                     <div className="a-row">
                       <div className="a-column a-span12 a-text-left">
                         {/* form "Arrives" + "Fastest Delivery" section */}
                         <div id="fast-track" className="a-section a-spacing-none">
-                            {this.formArrivesMessage()}
+                            {this.createArrivesMessage()}
                         </div>
                         {/* form "Deliver to___" with location icon section */}
                         <div id="customer-location-badge" className="a-declarative">
-                          customer-location-badge-palceholder
+                          {/* INSERT CODE FOR CUSTOMER ICON/LOCATION HERE */}
                         </div>
                       </div>
                     </div>                    
