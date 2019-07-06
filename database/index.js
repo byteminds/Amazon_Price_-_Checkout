@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1/pricingComponentDB');
+const Faker = require('faker');
+
+console.log(typeof Faker.address.zipCode());
 
 let repoSchema = {
   id: Number,
@@ -9,7 +12,10 @@ let repoSchema = {
   shipCost: Number,
   soldBy: String,
   subscriptionProtectionPlanCost: Number,
-  TwoYrProtectionPlanCost: Number
+  TwoYrProtectionPlanCost: Number,
+  customerCity: String,
+  customerZip: Number,
+  customerName: String
 }
 
 let db = {};
@@ -20,7 +26,7 @@ db.save = (array, callback) => {
   Repo.deleteMany({}, () => {
     Repo.insertMany(array, (err) => {
       if (err) {
-        console.log(`Error: insertMany function`)
+        console.log(`Error: insertMany function `, err)
       } else {
         callback();
       }

@@ -8,6 +8,7 @@ let fakeEntryCount = 100;
 let entriesArray = [];
 
 for (i = 1; i <= fakeEntryCount; i++) {
+  
   let obj = {
     id: i,
     Price: chance.floating({ min: 49, max: 999, fixed: 0 }) + 0.99,
@@ -16,7 +17,10 @@ for (i = 1; i <= fakeEntryCount; i++) {
     shipCost: chance.floating({ min: 0, max: 49, fixed: 0 }) + 0.99,
     soldBy: Faker.company.companyName(),
     subscriptionProtectionPlanCost: chance.floating({ min: 1, max: 19, fixed: 0 }) + 0.99,
-    TwoYrProtectionPlanCost: chance.floating({ min: 19, max: 99, fixed: 0 }) + 0.99
+    TwoYrProtectionPlanCost: chance.floating({ min: 19, max: 99, fixed: 0 }) + 0.99,
+    customerCity: Faker.address.city(),
+    customerZip: Faker.address.zipCode().substring(0, 5),
+    customerName: Faker.name.firstName()
   }
   entriesArray.push(obj);
 };
