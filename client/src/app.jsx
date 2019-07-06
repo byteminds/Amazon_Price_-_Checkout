@@ -14,9 +14,12 @@ class App extends React.Component {
       shipCost: null,
       soldBy: null,
       subscriptionProtectionPlanCost: null,
-      TwoYrProtectionPlanCost: null
-    };
-  };
+      TwoYrProtectionPlanCost: null,
+      customerCity: null,
+      customerZip: null,
+      customerName: null
+    }
+  }
 
   createShippingMessage() {
     if (this.state.isPrime === 'false') {
@@ -72,6 +75,31 @@ class App extends React.Component {
     return `${hours} hours and ${minutes} minutes`
   }
 
+  createDeliveryLocationData() {
+    return(
+      <span className="a-declarative">
+        <a className="a-link-normal" href="#">
+          <div className="a-row a-spacing-top-mini">
+            <div className="a-column a-span12 a-text-left">
+              <div className="a-text-left a-column a-span12">
+                <div id="contextualIngressPt">
+                  <div id="contextualIngressPtPin">
+                  </div>
+                  <span id="contextualIngressPtLabel">
+                    <div className="contextualIngressPtLabel_deliveryShortLine">
+                      <span>Deliver to {this.state.customerName} - </span><br/>
+                      <span>{this.state.customerCity} {this.state.customerZip}</span>
+                    </div>
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </span>
+    )
+  }
+
   componentDidMount() {
     $.ajax({
       url: `/api/${Math.floor(Math.random() * 100)}`,
@@ -85,8 +113,11 @@ class App extends React.Component {
         shipCost: data[0].shipCost,
         soldBy: data[0].soldBy,
         subscriptionProtectionPlanCost: data[0].subscriptionProtectionPlanCost,
-        TwoYrProtectionPlanCost: data[0].TwoYrProtectionPlanCost
-      })
+        TwoYrProtectionPlanCost: data[0].TwoYrProtectionPlanCost,
+        customerCity: data[0].customerCity,
+        customerZip: data[0].customerZip,
+        customerName: data[0].customerName
+        })
       }
     })
   };
@@ -113,7 +144,7 @@ class App extends React.Component {
                 </div>
                 <div id="pointsInsideBuyBox_feature_div" className="feature">
                 </div>
-                {/* form Prime / Free Shipping section */}
+                {/* form Prime / Shipping section */}
                 <div id="shippingMessageInsideBuyBox_feature_div" className="feature">
                   <div className="a-section">
                     <div className="a-row">
@@ -134,12 +165,13 @@ class App extends React.Component {
                         </div>
                         {/* form "Deliver to___" with location icon section */}
                         <div id="customer-location-badge" className="a-declarative">
-                          {/* INSERT CODE FOR CUSTOMER ICON/LOCATION HERE */}
+                          {this.createDeliveryLocationData()}
                         </div>
                       </div>
                     </div>                    
                   </div>
                 </div>
+                {/* form "In Stock info section **START HERE**" */}
                 <div id="" className="">
                 </div>
                 <div id="" className="">
