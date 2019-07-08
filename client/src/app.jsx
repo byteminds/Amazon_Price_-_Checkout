@@ -34,7 +34,7 @@ class App extends React.Component {
     }
   }
 
-  createArrivesMessage() {
+  createDeliveryArrivesMessage() {
     let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
     if (this.state.isPrime === "true") {
       let d = new Date();
@@ -44,7 +44,7 @@ class App extends React.Component {
           FREE Delivery: <b className="a-text-bold">{deliveryDate} </b>
           <br/>
           <span className="a-color-secondary">Order within </span>
-          <span id="ship-time-CTA" className="a-color-secondary">{this.getRemainingTimetoOrder()} </span>
+          <span id="ship-time-CTA" className="a-color-secondary">{this.createRemainingTimeToOrder()} </span>
           <a href="https://www.amazon.com/gp/help/customer/display.html/ref=ftinfo_dp_?ie=UTF8&nodeId=3510241&pop-up=1" target="AmazonHelp">Details</a>
         </div>
       )
@@ -65,7 +65,7 @@ class App extends React.Component {
     }
   }
 
-  getRemainingTimetoOrder() {
+  createRemainingTimeToOrder() {
     let actualTime = new Date(Date.now());
     let endOfDay = new Date(actualTime.getFullYear(), actualTime.getMonth(), actualTime.getDate() + 1, 0, 0, 0);
     let timeRemaining = endOfDay.getTime() - actualTime.getTime();
@@ -100,12 +100,36 @@ class App extends React.Component {
     )
   }
 
+  createInStockMessage() {
+    if (this.state.stockQty > 9) {
+      return (
+        <span className="a-size-medium a-color-success">In Stock.</span>
+      )
+    } else {
+      return (
+        <span className="a-size-medium a-color-price">Only {this.state.stockQty} left in stock - order soon.</span>
+      )
+    }
+  }
+
+  populateQuantityDropdown() {
+    let qtyElements = [];
+    for (let i = 1; i <= this.state.stockQty; i++) {
+        qtyElements.push(<option value={i} key={i}>{i}</option>);
+    }
+    return(
+      <select name="quantity" id="quantity" autoComplete="off" className="a-native-dropdown">
+        {/* <option value="1" defaultValue="1"></option> */}
+        {qtyElements}
+      </select>
+    )
+  }
+
   componentDidMount() {
     $.ajax({
       url: `/api/${Math.floor(Math.random() * 100)}`,
       type: 'GET',
       success: (data) => {
-        // console.log(data[0]);
         this.setState({
         Price: data[0].Price,
         isPrime: data[0].isPrime,
@@ -119,7 +143,7 @@ class App extends React.Component {
         customerName: data[0].customerName
         })
       }
-    })
+    });
   };
 
   render() {
@@ -161,7 +185,7 @@ class App extends React.Component {
                       <div className="a-column a-span12 a-text-left">
                         {/* form "Arrives" + "Fastest Delivery" section */}
                         <div id="fast-track" className="a-section a-spacing-none">
-                            {this.createArrivesMessage()}
+                            {this.createDeliveryArrivesMessage()}
                         </div>
                         {/* form "Deliver to___" with location icon section */}
                         <div id="customer-location-badge" className="a-declarative">
@@ -172,9 +196,41 @@ class App extends React.Component {
                   </div>
                 </div>
                 {/* form "In Stock info section **START HERE**" */}
-                <div id="" className="">
+                <div id="inStockAvailabilityMessage" className="feature">
+                  <div className="a-section a-spacing-top-micro">
+                    <div id="availability" className="a-section a-spacing-base">
+                      {this.createInStockMessage()}
+                    </div>
+                  </div>
+                  <div className="a-section a-spacing-none">
+                  </div>
                 </div>
-                <div id="" className="">
+                {/* form Quantity selector dropdown */}
+                <div id="quantityDropdownSection" className="feature">
+                  <div className="a-row a-spacing-mini">
+                    <div className="a-column a-span12 a-text-center a-spacing-small">
+                      <div id="quantiySelectorRow" className="a-section a-spacing-none a-padding-none">
+                        {/* <span></span> necessary? */}
+                        <div className="a-row a-spacing-base">
+                          <div className="a-column a-span12 a-text-left">
+                            <span className="a-dropdown-container">
+                              <label form="quantity" className="a-native-dropdown">Qty:</label>
+                                {this.populateQuantityDropdown()}
+                              <span className="a-button a-button-dropdown a-button-small">
+                                <span className="a-button-inner">
+                                  <span className="a-button-text a-declarative" role="button" aria-hidden="true" aria-pressed="false">
+                                    <span className="a-dropdown-label">Qty:</span>
+                                    <span className="a-dropdown-prompt">1</span>
+                                  </span>
+                                  <span className="a-icon a-icon-dropdown"></span>
+                                </span>
+                              </span>
+                            </span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
                 <div id="" className="">
                 </div>
