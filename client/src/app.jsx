@@ -119,7 +119,6 @@ class App extends React.Component {
     }
     return(
       <select name="quantity" id="quantity" autoComplete="off" className="a-native-dropdown">
-        {/* <option value="1" defaultValue="1"></option> */}
         {qtyElements}
       </select>
     )
@@ -152,7 +151,8 @@ class App extends React.Component {
     <div className="a-box-group">
       <div className="a-box a-last">
         <div className="a-box-inner">
-          <div className="a-section a-spacing-none a-padding-none">
+          {/* below immediately below holds each feature divs */}
+          <div className="a-section a-spacing-none a-padding-none"> 
             {/* start small section that forms price block  */}
             <div idname="priceInsideBuyBox_feature_div">
               <div className="a-section">
@@ -232,13 +232,30 @@ class App extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div id="" className="">
+                {/* form price and shipping confirmation above ATC button */}
+                <div id="price-and-shipping-confirmation" className="feature">
+                  <div className="a-spacing-small a-text-center">
+                    <span className="a-color-price">${this.state.Price}</span>
+                    <span className="a-size-small"> + Free Shipping</span>
+                  </div>
                 </div>
-                <div id="" className="">
+                {/* form Add To Cart button */}
+                <div id="add-to-cart-button" className="feature">
+                  <div className="a-button-stack">
+                    <span className="a-declarative">
+                      <div id="clickable-add-to-cart" className="a-button a-spacing-small a-button-primary a-button-icon">
+                        <span className="a-button-inner">
+                          <i className="a-icon a-icon-cart"></i>
+                          <input id="button-click-section" className="a-button-input attach-dss-atc"></input>
+                          <span className="a-button-text">Add to Cart</span>
+                        </span>
+                      </div>
+                    </span>
+                  </div>
                 </div>
-                <div id="" className="">
+                <div id="" className="feature">
                 </div>
-                <div id="" className="">
+                <div id="" className="feature">
                 </div>
               </div>
             </div>
