@@ -128,10 +128,7 @@ class App extends React.Component {
     $.ajax({
       url: `http://127.0.0.1:3004/api/${Math.floor(Math.random() * 100)}`,
       type: 'GET',
-      crossDomain: true,
-      // dataType: 'jsonp',
       success: (data) => {
-        console.log(`AJAX fired, this is the data:`, data);
         this.setState({
         Price: data[0].Price,
         isPrime: data[0].isPrime,
@@ -145,7 +142,6 @@ class App extends React.Component {
         customerName: data[0].customerName
         })
       },
-
     });
   };
 
