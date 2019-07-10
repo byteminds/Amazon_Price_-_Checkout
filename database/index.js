@@ -2,8 +2,6 @@ const mongoose = require('mongoose');
 mongoose.connect('mongodb://127.0.0.1/pricingComponentDB');
 const Faker = require('faker');
 
-console.log(typeof Faker.address.zipCode());
-
 let repoSchema = {
   id: Number,
   Price: Number,
@@ -46,7 +44,7 @@ db.getDocument = (id, callback) => {
 
 // let docsArray = [];
 
-//   Repo.find({}).stream() // why does this work here but not in the test suite?
+//   Repo.find({}).stream() // this work here but not in the test suite (why?)
 //       .on('data', docs => {
 //          docsArray.push(docs);
 //       })
