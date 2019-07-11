@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import moment from 'moment';
-import '../dist/app.css';
+import '../src/app.css';
 
 class App extends React.Component {
   constructor(props) {
