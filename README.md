@@ -4,9 +4,9 @@
 
 ## Related Projects
 
-  - https://github.com/byteminds/proxy-pricing-checkout-kt
-  - https://github.com/byteminds/service-itemDescription-sp
-  - https://github.com/byteminds/components-product-review-pt/tree/newfeature
+  - Proxy Server: https://github.com/byteminds/proxy-pricing-checkout-kt
+  - Item Description component: https://github.com/byteminds/service-itemDescription-sp
+  - Product Reviews component: https://github.com/byteminds/components-product-review-pt/tree/newfeature
 
 ---
 
