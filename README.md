@@ -1,4 +1,4 @@
-# Amazon Product Page Component: Pricing and Checkout Details
+# Amazon Pricing and Checkout Details
 
 > One component of a cloned Amazon product details page.
 
