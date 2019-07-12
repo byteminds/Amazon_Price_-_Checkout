@@ -1,6 +1,6 @@
 # Amazon Product Pricing and Checkout Details
 
-> One component of a cloned Amazon product details page.
+> Single component of a cloned Amazon product details page.
 
 ## Related Projects
 
@@ -26,11 +26,11 @@ In your terminal,
 - [ ] Seed the database w/ fake data `npm run seed`
 
 In your browser,
-- [ ] Navigate to `http://localhost:3003`
+- [ ] Navigate to `http://localhost:3004`
 
 ### Testing
 In your terminal,
-- [ ] Run Jest tests for MongoDB connection && Express server connections `npm test`
+- [ ] Run Jest tests for MongoDB connection & Express server connections `npm test`
 
 ---
 
