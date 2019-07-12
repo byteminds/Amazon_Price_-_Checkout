@@ -8,6 +8,9 @@
   - Item Description component: https://github.com/byteminds/service-itemDescription-sp
   - Product Reviews component: https://github.com/byteminds/components-product-review-pt/tree/newfeature
 
+## License
+This project is licensed under the MIT License - see the LICENSE.md file for details
+
 ---
 
 ## Getting Started
@@ -34,6 +37,3 @@ In your terminal,
 ## Built With
 - React
 - MongoDB
-
-## License
-This project is licensed under the MIT License - see the LICENSE.md file for details
