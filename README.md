@@ -1,6 +1,6 @@
 # Project Name
 
-> Project description
+> Amazon Product Page Component: Pricing and Checkout Details
 
 ## Related Projects
 
@@ -27,6 +27,8 @@ An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
 - etc
 
 ## Development
+
+
 
 ### Installing Dependencies
 
