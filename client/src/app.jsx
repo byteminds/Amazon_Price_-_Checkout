@@ -125,8 +125,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    let split = window.location.href.split("/")
+    let id = split[split.length - 2];
     $.ajax({
-      url: `http://127.0.0.1:3004/api/${Math.floor(Math.random() * 100)}`,
+      url: `http://127.0.0.1:3004/api/${id}`,
       type: 'GET',
       success: (data) => {
         this.setState({
