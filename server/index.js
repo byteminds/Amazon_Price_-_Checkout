@@ -12,10 +12,9 @@ app.use('/:id', express.static(path.join(__dirname, `../client/dist`)));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());
 
-app.get('/api/:id', (req, res) => {
+app.get('/pricingAPI/:id', (req, res) => {
   db.getDocument(req.params.id, (items) => {
     res.send(items);
-    console.log("*Responded to Client Request*")
     });
 });
 
