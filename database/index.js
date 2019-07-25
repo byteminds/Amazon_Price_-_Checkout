@@ -1,5 +1,6 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1/pricingComponentDB');
+// mongoose.connect('mongodb://127.0.0.1/pricingComponentDB');
+mongoose.connect('mongodb:http://ec2-18-216-77-83.us-east-2.compute.amazonaws.com/');
 const Faker = require('faker');
 
 let repoSchema = {
