@@ -22,3 +22,6 @@ coverage
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
+
+# keys
+mongodb_pricing.pem
