@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const {db} = require('../database/index')
-const port = 3004;
+const port = 80;
 const path = require('path');
 const cors = require('cors');
 
