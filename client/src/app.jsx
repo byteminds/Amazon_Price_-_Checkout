@@ -128,7 +128,7 @@ class App extends React.Component {
     let split = window.location.href.split("/")
     let id = split[split.length - 2];
     $.ajax({
-      url: `http://127.0.0.1:3004/pricingAPI/${id}`,
+      url: `http://ec2-3-17-206-111.us-east-2.compute.amazonaws.com/pricingAPI/${id}`,
       type: 'GET',
       success: (data) => {
         this.setState({
