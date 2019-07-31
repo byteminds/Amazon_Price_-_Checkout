@@ -1,12 +1,14 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const {db} = require('../database/index')
-const port = 80;
 const path = require('path');
+const cors = require('cors');
+const port = 80;
 
 let app = express();
 
-app.use('/:id', express.static(path.join(__dirname, `../client/dist`)));
+app.use(cors());
+app.use('/:id/', express.static(path.join(__dirname, `../client/dist`)));
 app.use(bodyParser.urlencoded({ extended: true }));
 
 app.get('/pricingAPI/:id', (req, res) => {

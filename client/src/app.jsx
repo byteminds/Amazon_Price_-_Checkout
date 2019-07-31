@@ -128,7 +128,7 @@ class App extends React.Component {
     let split = window.location.href.split("/")
     let id = split[split.length - 2];
     $.ajax({
-      url: `http://ec2-3-17-206-111.us-east-2.compute.amazonaws.com/pricingAPI/${id}`,
+      url: `${window.location.origin}/pricingAPI/${id}`,
       type: 'GET',
       success: (data) => {
         this.setState({
@@ -144,6 +144,9 @@ class App extends React.Component {
         customerName: data[0].customerName
         })
       },
+      error: (error) => {
+        console.log(`GET Error: `, error)
+      }
     });
   };
 
