@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import $ from 'jquery';
 import moment from 'moment';
-import '../dist/app.css';
+import '../src/app.css';
 
 class App extends React.Component {
   constructor(props) {
@@ -125,8 +125,10 @@ class App extends React.Component {
   }
 
   componentDidMount() {
+    let split = window.location.href.split("/")
+    let id = split[split.length - 2];
     $.ajax({
-      url: `http://127.0.0.1:3004/api/${Math.floor(Math.random() * 100)}`,
+      url: `http://ec2-3-17-206-111.us-east-2.compute.amazonaws.com/pricingAPI/${id}`,
       type: 'GET',
       success: (data) => {
         this.setState({
@@ -273,4 +275,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App/>, document.getElementById('app'));
+ReactDOM.render(<App/>, document.getElementById('pricingApp'));

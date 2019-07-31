@@ -12,7 +12,6 @@ describe('database', () => {
   });
 
   afterAll(async (done) => {
-    // db.dropDatabase();
     db.close();
     done();
   });

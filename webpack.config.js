@@ -1,6 +1,7 @@
 const path = require('path');
 const src = path.join(__dirname, '/client/src');
 const dist = path.join(__dirname, '/client/dist');
+const webpack = require('webpack');
 
 module.exports = {
   entry: `${src}/app.jsx`,
@@ -9,14 +10,18 @@ module.exports = {
     path: dist
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx?/,
         include: src,
-        loader: `babel-loader`,
-        query: {
-          presets: [`react`, `es2015`]
-        }
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['@babel/react']
+            }
+          }
+        ],
       },
       {
         test: /\.css$/,
