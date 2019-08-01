@@ -49,9 +49,9 @@ class App extends React.Component {
         </div>
       )
     } else {
-      let earliest = moment().add(5, 'days').format("MMM DD");
-      let latest = moment().add(10, 'days').format("MMM DD");
-      let upsell = moment().add(2, 'days').format("MMM DD");
+        let earliest = moment().add(5, 'days').format("MMM DD");
+        let latest = moment().add(10, 'days').format("MMM DD");
+        let upsell = moment().add(2, 'days').format("MMM DD");
       return(
         <div className="a-section a-spacing-none">
           <div id="arrives-by-message" className="a-section a-spacing-none a-spacing-top-mini">
@@ -105,30 +105,35 @@ class App extends React.Component {
       return (
         <span className="a-size-medium a-color-success">In Stock.</span>
       )
-    } else {
+    } else if (this.state.stockQty > 0) {
       return (
         <span className="a-size-medium a-color-price">Only {this.state.stockQty} left in stock - order soon.</span>
+      )
+    } else {
+      return (
+        <span className="a-size-medium a-color-price">Out of Stock.</span>
       )
     }
   }
 
-  populateQuantityDropdown() {
-    let qtyElements = [];
-    for (let i = 1; i <= this.state.stockQty; i++) {
-        qtyElements.push(<option value={i} key={i}>{i}</option>);
-    }
-    return(
-      <select name="quantity" id="quantity" autoComplete="off" className="a-native-dropdown">
-        {qtyElements}
-      </select>
-    )
-  }
+  // **this is the standard-looking dropdown -> refactoring to build one that replicates Amazon's
+  // populateQuantityDropdown() {
+  //   let qtyElements = [];
+  //   for (let i = 1; i <= this.state.stockQty; i++) {
+  //       qtyElements.push(<option value={i} key={i}>{i}</option>);
+  //   }
+  //   return(
+  //     <select name="quantity" id="quantity" autoComplete="off" className="a-native-dropdown">
+  //       {qtyElements}
+  //     </select>
+  //   )
+  // }
 
   componentDidMount() {
     let split = window.location.href.split("/")
     let id = split[split.length - 2];
     $.ajax({
-      url: `${window.location.origin}/pricingAPI/${id}`,
+      url: `http://ec2-3-17-206-111.us-east-2.compute.amazonaws.com/pricingAPI/${id}`,
       type: 'GET',
       success: (data) => {
         this.setState({
@@ -145,7 +150,7 @@ class App extends React.Component {
         })
       },
       error: (error) => {
-        console.log(`GET Error: `, error)
+        console.log(`GET request error: `, error)
       }
     });
   };
@@ -219,8 +224,8 @@ class App extends React.Component {
                         <div className="a-row a-spacing-base">
                           <div className="a-column a-span12 a-text-left">
                             <span className="a-dropdown-container">
-                              <label form="quantity" className="a-native-dropdown">Qty:</label>
-                                {this.populateQuantityDropdown()}
+                              {/* <label form="quantity" className="a-native-dropdown">Qty:</label>
+                                {this.populateQuantityDropdown()} */}
                               <span className="a-button a-button-dropdown a-button-small">
                                 <span className="a-button-inner">
                                   <span className="a-button-text a-declarative" role="button" aria-hidden="true" aria-pressed="false">
@@ -245,16 +250,16 @@ class App extends React.Component {
                   </div>
                 </div>
                 {/* form Add To Cart button */}
-                <div id="add-to-cart-button" className="feature">
+                <div id="add_to-cart-container" className="feature">
                   <div className="a-button-stack">
                     <span className="a-declarative">
-                      <div id="clickable-add-to-cart" className="a-button a-spacing-small a-button-primary a-button-icon">
+                      <span id="clickable-add-to-cart" className="a-button a-spacing-small a-button-primary a-button-icon">
                         <span className="a-button-inner">
                           <i className="a-icon a-icon-cart"></i>
-                          <input id="button-click-section" className="a-button-input attach-dss-atc"></input>
-                          <span className="a-button-text">Add to Cart</span>
+                          <input id="button-click-section" className="a-button-input attach-dss-atc" value="Add to Cart" type="button"></input>
+                          <span className="a-button-text" hidden="true">Add to Cart</span>
                         </span>
-                      </div>
+                      </span>
                     </span>
                   </div>
                 </div>

@@ -36,7 +36,7 @@ div {
 
 .a-box-group {
   width: 244px;
-  height: 609px;
+  /* height: 609px; */
   /* above likely temporary sizing until added to overall page */
   border-radius: 4px;
 }
@@ -333,7 +333,7 @@ button, input, select, textarea {
   display: block;
   position: relative;
   overflow: hidden;
-  /* height: 29px; */
+  height: 29px;
   box-shadow: 0 1px 0 rgba(255,255,255,.6) inset;
   border-radius: 2px;
 }
@@ -361,8 +361,6 @@ button, input, select, textarea {
   width: 25px;
   background-position: -35px -5px;
 }
-
-
 
 .a-button .a-icon-dropdown {
   position: absolute;
@@ -404,3 +402,11 @@ em, i {
   overflow: visible;
   z-index: 20;
 }
+
+/* #add-to-cart-button {
+  height: 41px;
+} */
+/* 
+#submit.add-to-cart {
+  height: 31px;
+} */
