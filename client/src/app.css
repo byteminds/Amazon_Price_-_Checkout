@@ -317,6 +317,7 @@ button, input, select, textarea {
 }
 
 .a-button-stack .a-button {
+  height: 31px;
   margin-bottom: 10px;
   display: block;
 }
@@ -359,7 +360,7 @@ button, input, select, textarea {
 .a-icon-cart {
   height: 25px;
   width: 25px;
-  background-position: -35px -5px;
+  /* background-position: -35px -5px; */
 }
 
 .a-button .a-icon-dropdown {

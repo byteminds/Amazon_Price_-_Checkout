@@ -263,7 +263,24 @@ class App extends React.Component {
                     </span>
                   </div>
                 </div>
-                <div id="" className="feature">
+                {/* form Buy it Now button */}
+                <div id="buyNow_feature_div" className="feature">
+                  <div className="a-button-stack">
+                    <div id="buyNow" className="a-section a-spacing-base">
+                      <div id="turboState" className="a-section a-spacing-none a-padding-none">
+                        <script id="notUsedForAnythingCurrently"></script>
+                      </div>
+                      <script id="notUsedForAnythingCurrently"></script>
+                      <span className="a-declarative" id="turbo-checkout-modal"></span>
+                      <span id="submit.buy-now" className="a-button a-button-icon a-button-oneclick onml-buy-now-button">
+                        <span className="a-button-inner">
+                          <i className="a-icon a-icon-buynow" role="img"></i>
+                          <input id="buy-now-button" name="submit.buy-now" className="a-button-input" type="submit"></input>
+                          <span id="submit.buy-now-announce" className="a-button-text">Buy Now</span>
+                        </span>
+                      </span>
+                    </div>
+                  </div>
                 </div>
                 <div id="" className="feature">
                 </div>
