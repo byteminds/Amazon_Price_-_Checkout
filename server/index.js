@@ -4,7 +4,7 @@ const compression = require('compression');
 const {db} = require('../database/index');
 const path = require('path');
 const cors = require('cors');
-const port = 3004;
+const port = 80;
 
 let app = express();
 
