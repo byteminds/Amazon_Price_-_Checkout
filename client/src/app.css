@@ -330,7 +330,7 @@ button, input, select, textarea {
 
 .a-button-inner {
   background: linear-gradient(to bottom,#f7f8fa,#e7e9ec);
-  height: 20px!important;
+  /* height: 29px!important; */
   display: block;
   position: relative;
   overflow: hidden;
@@ -352,15 +352,19 @@ button, input, select, textarea {
   box-shadow: 0 1px 0 rgba(255,255,255,.4) inset;
 }
 
+.a-button-icon .a-icon {
+  position: absolute;
+}
+
 .a-button-icon .a-icon-cart, .a-button-icon .a-icon-sns {
   top: 2px;
   left: 2px;
 }
 
 .a-icon-cart {
-  height: 25px;
+  height: 29px;
   width: 25px;
-  /* background-position: -35px -5px; */
+  background-position: -35px -5px;
 }
 
 .a-button .a-icon-dropdown {
@@ -404,10 +408,7 @@ em, i {
   z-index: 20;
 }
 
-/* #add-to-cart-button {
-  height: 41px;
-} */
-/* 
-#submit.add-to-cart {
-  height: 31px;
-} */
+#merchant-info {
+  cursor: pointer;
+  display: flex;
+}

@@ -227,13 +227,14 @@ class App extends React.Component {
                               {/* <label form="quantity" className="a-native-dropdown">Qty:</label>
                                 {this.populateQuantityDropdown()} */}
                               <span className="a-button a-button-dropdown a-button-small">
-                                <span className="a-button-inner">
+                                {/* <span className="a-button-inner-qty"> */}
+                                {/* removed above span, was causing background to bleed below bottom of button */}
                                   <span className="a-button-text a-declarative" role="button" aria-hidden="true" aria-pressed="false">
                                     <span className="a-dropdown-label">Qty:</span>
                                     <span className="a-dropdown-prompt">1</span>
                                   </span>
                                   <span className="a-icon a-icon-dropdown"></span>
-                                </span>
+                                {/* </span> */}
                               </span>
                             </span>
                           </div>
@@ -282,7 +283,14 @@ class App extends React.Component {
                     </div>
                   </div>
                 </div>
-                <div id="" className="feature">
+                <div id="ships-from-merchant-message" className="feature">
+                  <div className="a-section a-spacing-medium">
+                    <div id="merchant-info" className="a-section a-spacing-mini">
+                      <span>Ships from and sold by
+                        <a href="http://giphygifs.s3.amazonaws.com/media/5ftsmLIqktHQA/giphy.gif"> {this.state.soldBy}</a>
+                      </span>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
