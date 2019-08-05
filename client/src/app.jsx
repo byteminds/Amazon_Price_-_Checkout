@@ -283,6 +283,7 @@ class App extends React.Component {
                     </div>
                   </div>
                 </div>
+                {/* for ships from merchant message */}
                 <div id="ships-from-merchant-message" className="feature">
                   <div className="a-section a-spacing-medium">
                     <div id="merchant-info" className="a-section a-spacing-mini">
@@ -292,9 +293,13 @@ class App extends React.Component {
                     </div>
                   </div>
                 </div>
+                {/* form protection plan container */}
+                <div id="protection-plan-box" className="feature">
+                  <div id="abbWrapper" className="a-section mbb__bb mbb__tsn">
+                    *Protection Plan div goes here*
+                  </div>
+                </div>
               </div>
-            </div>
-            <div id="digitalDashHighProminence_feature_div" className="feature">
             </div>
             <div id="addToWishlist_feature_div" className="feature">
             </div>
