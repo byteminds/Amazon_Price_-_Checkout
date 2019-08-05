@@ -313,4 +313,4 @@ class App extends React.Component {
   }
 }
 
-ReactDOM.render(<App/>, document.getElementById('pricingApp'));
+ReactDOM.render(<pricingApp/>, document.getElementById('pricingApp'));
