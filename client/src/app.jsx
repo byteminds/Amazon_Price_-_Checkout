@@ -296,7 +296,7 @@ class App extends React.Component {
                 {/* form protection plan container */}
                 <div id="protection-plan-box" className="feature">
                   <div id="abbWrapper" className="a-section mbb__bb mbb__tsn">
-                    *Protection Plan div goes here*
+                    {/* *Protection Plan div goes here* */}
                   </div>
                 </div>
               </div>
