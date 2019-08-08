@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://127.0.0.1/pricingComponentDB');
-const Faker = require('faker');
+// mongoose.connect('mongodb://127.0.0.1/pricingComponentDB');
+mongoose.connect('mongodb://ec2-18-216-77-83.us-east-2.compute.amazonaws.com/pricingComponentDB');
 
 let repoSchema = {
   id: Number,
@@ -14,7 +14,7 @@ let repoSchema = {
   customerCity: String,
   customerZip: Number,
   customerName: String
-}
+} 
 
 let db = {};
 
@@ -41,18 +41,5 @@ db.getDocument = (id, callback) => {
     }
   });
 };
-
-// let docsArray = [];
-
-//   Repo.find({}).stream() // this work here but not in the test suite (why?)
-//       .on('data', docs => {
-//          docsArray.push(docs);
-//       })
-//       .on('error', err => {
-//         console.log(`ERROR: `, err)
-//       })
-//       .on('end',  () => {
-//         return null;
-//       })
 
 module.exports.db = db;

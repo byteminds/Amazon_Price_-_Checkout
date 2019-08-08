@@ -1,41 +1,39 @@
-# Project Name
+# Amazon Product Pricing and Checkout Details
 
-> Amazon Product Page Component: Pricing and Checkout Details
+> Single component of a cloned Amazon product details page.
 
 ## Related Projects
 
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
-  - https://github.com/teamName/repo
+  - Proxy Server: https://github.com/byteminds/proxy-pricing-checkout-kt
+  - Item Description component: https://github.com/byteminds/service-itemDescription-sp
+  - Product Reviews component: https://github.com/byteminds/components-product-review-pt/tree/newfeature
 
-## Table of Contents
+## License
+This project is licensed under the MIT License - see the LICENSE.md file for details
 
-1. [Usage](#Usage)
-1. [Requirements](#requirements)
-1. [Development](#development)
+---
 
-## Usage
+## Getting Started
 
-> Some usage instructions
+### Prerequisites
+In your terminal,
+- [ ] `npm install`
 
-## Requirements
+### Starting the App
+In your terminal,
+- [ ] Run webpack `npm run build`
+- [ ] Start your server `npm run server`
+- [ ] Seed the database w/ fake data `npm run seed`
 
-An `nvmrc` file is included if using [nvm](https://github.com/creationix/nvm).
+In your browser,
+- [ ] Navigate to `http://localhost:3004`
 
-- Node 6.13.0
-- etc
+### Testing
+In your terminal,
+- [ ] Run Jest tests for MongoDB connection & Express server connections `npm test`
 
-## Development
+---
 
-
-
-### Installing Dependencies
-
-From within the root directory:
-
-```sh
-npm install -g webpack
-npm install
-```
-
+## Built With
+- React
+- MongoDB
